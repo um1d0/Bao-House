@@ -1,0 +1,194 @@
+/* CSS Variables for Dark Theme */
+:root {
+  --bg-error: #000;
+  --text-gold: #ccaa00;
+  --text-gold-light: #e6c200;
+  --text-sub: rgba(255, 255, 255, 0.4);
+  --bg-btn-primary: #ccaa00;
+  --bg-btn-primary-hover: #e6c200;
+  --text-btn-primary: #000;
+  --bg-btn-secondary: transparent;
+  --text-btn-secondary: rgba(255, 255, 255, 0.7);
+  --border-btn-secondary: rgba(255, 255, 255, 0.2);
+  --text-btn-secondary-hover: #ccaa00;
+  --border-btn-secondary-hover: #ccaa00;
+}
+
+/* Light Theme Overrides */
+.LightTheme {
+  --bg-error: #ffffff;
+  --text-gold: #ccaa00;
+  --text-gold-light: #e6c200;
+  --text-sub: rgba(0, 0, 0, 0.6);
+  --bg-btn-primary: #ccaa00;
+  --bg-btn-primary-hover: #e6c200;
+  --text-btn-primary: #000;
+  --bg-btn-secondary: transparent;
+  --text-btn-secondary: rgba(0, 0, 0, 0.7);
+  --border-btn-secondary: rgba(0, 0, 0, 0.2);
+  --text-btn-secondary-hover: #ccaa00;
+  --border-btn-secondary-hover: #ccaa00;
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+}
+.header-line {
+  width: 100%;
+  height: 1px;
+  background: var(--text-gold);
+}
+
+.error-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-error);
+  position: relative;
+  padding: 60px 20px;
+}
+
+.steam-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.steam-bg span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(204, 170, 0, 0.07);
+}
+
+.steam-bg span:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: -150px;
+}
+.steam-bg span:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  right: -100px;
+}
+.steam-bg span:nth-child(3) {
+  width: 350px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.steam-lines {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.steam-line {
+  width: 2px;
+  border-radius: 2px;
+  background: var(--text-gold);
+}
+
+.steam-line:nth-child(1) {
+  height: 32px;
+}
+.steam-line:nth-child(2) {
+  height: 22px;
+}
+.steam-line:nth-child(3) {
+  height: 28px;
+}
+
+.error-code {
+  font-family: "Georgia", serif;
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--text-gold);
+}
+
+.error-tagline {
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
+  color: var(--text-gold);
+  margin-top: 24px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.error-tagline em {
+  font-style: italic;
+  color: var(--text-gold-light);
+}
+
+.error-sub {
+  color: var(--text-sub);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gold-divider {
+  width: 50px;
+  height: 2px;
+  background: var(--text-gold);
+  margin: 32px auto;
+}
+
+.error-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  padding: 13px 38px;
+  background: var(--bg-btn-primary);
+  color: var(--text-btn-primary);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--bg-btn-primary-hover);
+}
+
+.btn-secondary {
+  padding: 13px 38px;
+  background: var(--bg-btn-secondary);
+  color: var(--text-btn-secondary);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border-btn-secondary);
+}
+
+.btn-secondary:hover {
+  color: var(--text-btn-secondary-hover);
+  border-color: var(--border-btn-secondary-hover);
+}
