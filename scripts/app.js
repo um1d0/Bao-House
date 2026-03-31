@@ -1,19 +1,9 @@
 // Product Section
 
-const MobileNavButton = document.querySelector(".Navbutton");
-const MobileNav = document.querySelector(".mobile-nav");
-MobileNavButton.addEventListener("click", () => {
-  MobileNavButton.classList.toggle("activeNavButton");
-  MobileNav.classList.toggle("activeMobileNav");
-});
-if (document.querySelector('body').classList.contains('LightTheme')) {
-  MobileNavButton.style.backgroundImage = "url('../assets/icons/lightMobBtn.png')"
-}
 fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
   .then((response) => response.json())
 
-  .then((data) => ProductList(data))
-  ;
+  .then((data) => ProductList(data));
 
 function ProductList(list) {
   const productCard = document.querySelector(".product-grid");
@@ -47,16 +37,24 @@ function addToCart(quantity, price, id) {
     body: JSON.stringify(CartData),
   })
     .then((resp) => resp.json())
-    .then((data) => console.log(data))
-    ;
+    .then((data) => console.log(data));
+
+    Swal.fire({
+              title: "Nice Choice!",
+              text: "Your item is waiting in the cart 🛒",
+              icon: "success",
+              background: "#252830",
+              color: "#e8e6e0",
+              confirmButtonColor: "#e8844a",
+              iconColor: "#5db87a",
+            });
 }
 fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
   .then((response) => response.json())
   .then((data) => {
     CategList(data);
     CategoriesFilter(data);
-  })
-  ;
+  });
 
 function CategList(Categ) {
   let CategDiv = document.querySelector(".Categories");
@@ -67,8 +65,7 @@ function CategList(Categ) {
   AllCatButton.addEventListener("click", () => {
     fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
       .then((response) => response.json())
-      .then((data) => ProductList(data))
-      ;
+      .then((data) => ProductList(data));
   });
   Categ.forEach((item) => {
     const CatButton = document.createElement("button");
@@ -79,8 +76,7 @@ function CategList(Categ) {
         `https://restaurant.stepprojects.ge/api/Categories/GetCategory/${item.id}`,
       )
         .then((resp) => resp.json())
-        .then((data) => ProductList(data.products))
-        ;
+        .then((data) => ProductList(data.products));
     });
   });
 }
@@ -111,14 +107,12 @@ SubmitFilter.addEventListener("click", (event) => {
     `https://restaurant.stepprojects.ge/api/Products/GetFiltered?vegeterian=${vegeterian.value}&nuts=${nuts.value}&spiciness=${spiciness.value}&categoryId=${category.value}`,
   )
     .then((resp) => resp.json())
-    .then((list) => ProductList(list))
-  ;
+    .then((list) => ProductList(list));
 });
 ResetFilter.addEventListener("click", () => {
   fetch(`https://restaurant.stepprojects.ge/api/Products/GetFiltered?v`)
     .then((resp) => resp.json())
-    .then((data) => ProductList(data))
-   ;
+    .then((data) => ProductList(data));
 });
 
 // Cart Section
@@ -206,8 +200,7 @@ function fetchCart() {
         return Total;
       }, 0);
       document.querySelector(".TotalPrice").textContent = "$" + Total;
-    })
-    ;
+    });
 }
 function updateQuantity(productId, price, quantity) {
   if (quantity < 1) {
@@ -224,15 +217,12 @@ function updateQuantity(productId, price, quantity) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(CartData),
-  })
-    .then(() => fetchCart())
-    ;
+  }).then(() => fetchCart());
 }
 
 function productDelete(id) {
   fetch(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`, {
     method: "DELETE",
-  })
-    .then(() => fetchCart())
-    ;
+  }).then(() => fetchCart());
 }
+

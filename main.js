@@ -1,4 +1,12 @@
-
+const MobileNavButton = document.querySelector(".Navbutton");
+const MobileNav = document.querySelector(".mobile-nav");
+MobileNavButton.addEventListener("click", () => {
+  MobileNavButton.classList.toggle("activeNavButton");
+  MobileNav.classList.toggle("activeMobileNav");
+});
+if (document.querySelector('body').classList.contains('LightTheme')) {
+  MobileNavButton.style.backgroundImage = "url('../assets/icons/lightMobBtn.png')"
+}
 if (localStorage.getItem("theme") === "light") {
   document.querySelector("body").classList.add("LightTheme");
 }

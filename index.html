@@ -11,7 +11,6 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/ThemeChanger.js" defer></script>
     <title>bao house</title>
   </head>
   <body>
@@ -191,9 +190,11 @@
        
         <div class="cartCheckout flex-row">
           <span>Total: <strong class="TotalPrice">$0</strong></span>
-          <button id="Checkout">Go To Checkout</button>
+          <a href="pages/checkout.html">
+          <button id="Checkout">Go To Checkout</button></a>
         </div>
       </section>
+      <section class="hidden CheckoutSection"></section>
 
       <div class="activeNavButton" style="background-color: black"></div>
     </main>
@@ -201,6 +202,7 @@
     <footer>
       <p>&copy; Toma & Umid. All rights reserved untill 6767</p>
     </footer>
+    <script src="main.js"></script>
     <script src="scripts/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

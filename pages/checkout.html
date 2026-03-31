@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/styles/404.css">
-    <title>404 – Bao House</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/checkout.css">
 </head>
 <body>
-
+ 
     <header>
       <h1 class="love-light-regular title">
         Bao <br />
@@ -139,57 +136,114 @@
         </ul>
       </nav>
     </header>
+    <main>
+  <div class="checkout-wrap">
 
+    <div class="checkout-card">
+      <div class="checkout-header">
+        <h1>Payment Details</h1>
+        <p>Your order is almost ready — fill in your card info</p>
+      </div>
+ 
 
-    <div class="header-line"></div>
-
-    <main class="error-section">
-
-        <div class="steam-bg">
-            <span></span><span></span><span></span>
+      <div class="checkout-card-visual">
+        <div class="checkout-card-brand">Bao House</div>
+        <div class="checkout-card-chip"></div>
+        <div class="checkout-card-number">•••• •••• •••• ••••</div>
+        <div class="checkout-card-bottom">
+          <div>
+            <div class="checkout-card-label">Expires</div>
+            <div class="checkout-card-value">MM / YYYY</div>
+          </div>
+          <div>
+            <div class="checkout-card-label">CVV</div>
+            <div class="checkout-card-value">•••</div>
+          </div>
         </div>
-
-        <div class="error-content">
-            <div class="steam-lines">
-                <div class="steam-line"></div>
-                <div class="steam-line"></div>
-                <div class="steam-line"></div>
-            </div>
-
-            <div class="bao-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" width="160" height="120">
-                    <path d="M38 18 Q40 12 38 6" stroke="#ccaa00" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
-                    <path d="M50 16 Q52 10 50 4" stroke="#ccaa00" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
-                    <path d="M62 18 Q64 12 62 6" stroke="#ccaa00" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
-                    <path d="M10 46 Q10 80 60 80 Q110 80 110 46 Z" fill="#ccaa00"/>
-                    <rect x="8" y="40" width="104" height="10" rx="5" fill="#e6c200"/>
-                    <path d="M22 48 Q30 54 38 48 Q46 42 54 48 Q62 54 70 48 Q78 42 86 48 Q94 54 98 48" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <path d="M18 56 Q26 62 34 56 Q42 50 50 56 Q58 62 66 56 Q74 50 82 56 Q90 62 98 56" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <ellipse cx="80" cy="50" rx="5" ry="3" fill="#fff" opacity="0.9"/>
-                    <ellipse cx="80" cy="50" rx="3" ry="2" fill="#e6c200"/>
-                    <ellipse cx="65" cy="45" rx="4" ry="2.5" fill="#fff" opacity="0.7"/>
-                    <ellipse cx="60" cy="80" rx="42" ry="6" fill="#aa8800" opacity="0.3"/>
-                    <line x1="46" y1="4" x2="56" y2="42" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
-                    <line x1="58" y1="4" x2="64" y2="42" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-            </div>
-
-            <h2 class="error-code">404</h2>
-
-            <p class="error-tagline">This bao got <em>lost in the kitchen.</em></p>
-            <p class="error-sub">The page you're looking for isn't on the menu</p>
-
-            <div class="gold-divider"></div>
-
-            <div class="error-actions">
-                <a href="index.html" class="btn-primary">Back to Home</a>
-                <a href="index.html#menu" class="btn-secondary">View Menu</a>
-            </div>
+      </div>
+ 
+      <div class="checkout-field">
+        <label>Card Number</label>
+        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"/>
+      </div>
+ 
+      <div class="checkout-form-row">
+        <div class="checkout-field">
+          <label>Expiry Month</label>
+          <div class="checkout-select-wrap">
+            <select id="expMonth">
+              <option value="" disabled selected>Month</option>
+              <option>01</option><option>02</option><option>03</option>
+              <option>04</option><option>05</option><option>06</option>
+              <option>07</option><option>08</option><option>09</option>
+              <option>10</option><option>11</option><option>12</option>
+            </select>
+          </div>
         </div>
-
-    </main>
-
-    <footer>Toma & Umid. All rights reserved untill 6767</footer>
-<script src="../main.js"></script>
+        <div class="checkout-field">
+          <label>Expiry Year</label>
+          <div class="checkout-select-wrap">
+            <select id="expYear">
+              <option value="" disabled selected>Year</option>
+              <option>2026</option>
+              <option>2027</option>
+              <option>2028</option>
+              <option>2029</option>
+              <option>2030</option>
+              <option>2031</option>
+              <option>2032</option>
+              <option>2033</option>
+              <option>2034</option>
+              <option>2035</option>
+              <option>2036</option>
+            </select>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- CVV -->
+      <div class="checkout-field">
+        <label>CVV</label>
+        <input type="password" id="cvv" placeholder="•••" maxlength="4"/>
+      </div>
+ 
+      <button class="checkout-btn-pay" type="button" id="PayBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="4" width="22" height="16" rx="2"/>
+          <line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+        Pay Now
+      </button>
+ 
+      <div class="checkout-secure-note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Secured with 256-bit SSL encryption
+      </div>
+    </div>
+ 
+    <!-- RIGHT: Order Summary -->
+    <div class="checkout-card checkout-summary">
+      <div>
+        <div class="checkout-summary-title">Order Summary</div>
+        <div class="checkout-summary-subtitle">Bao House</div>
+      </div>
+ 
+      <div class="checkout-items">
+        
+      </div>
+ 
+      <div class="checkout-totals">
+        <div class="checkout-total-row grand"><span>Total</span><p>0$</p></div>
+      </div>
+      <button class="pay">Confirm & Pay</button>
+    </div>
+ 
+  </div></main>
+ <script src="../main.js"></script>
+ <script src="../scripts/checkout.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
