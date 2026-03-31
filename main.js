@@ -29,3 +29,19 @@ function saveTheme() {
   const isLight = document.querySelector("body").classList.contains("LightTheme");
   localStorage.setItem("theme", isLight ? "light" : "dark");
 }
+const CartBtn = document.querySelector(".cart");
+CartBtn.addEventListener("click", () => {
+  document.querySelector(".productCard").classList.toggle("hidden");
+  document.querySelector(".CartSection").classList.toggle("hidden");
+  document.querySelector(".Categories").classList.toggle("hidden");
+  document.querySelector(".FilterDiv").classList.toggle("hidden");
+  fetchCart();
+});
+let CartBtnMobile = document.querySelector("#MobileCartBtn");
+CartBtnMobile.addEventListener("click", () => {
+  document.querySelector(".productCard").classList.toggle("hidden");
+  document.querySelector(".CartSection").classList.toggle("hidden");
+  document.querySelector(".Categories").classList.toggle("hidden");
+  document.querySelector(".FilterDiv").classList.toggle("hidden");
+  fetchCart();
+});

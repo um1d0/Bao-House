@@ -117,22 +117,7 @@ ResetFilter.addEventListener("click", () => {
 
 // Cart Section
 
-const CartBtn = document.querySelector(".cart");
-CartBtn.addEventListener("click", () => {
-  document.querySelector(".productCard").classList.toggle("hidden");
-  document.querySelector(".CartSection").classList.toggle("hidden");
-  document.querySelector(".Categories").classList.toggle("hidden");
-  document.querySelector(".FilterDiv").classList.toggle("hidden");
-  fetchCart();
-});
-let CartBtnMobile = document.querySelector("#MobileCartBtn");
-CartBtnMobile.addEventListener("click", () => {
-  document.querySelector(".productCard").classList.toggle("hidden");
-  document.querySelector(".CartSection").classList.toggle("hidden");
-  document.querySelector(".Categories").classList.toggle("hidden");
-  document.querySelector(".FilterDiv").classList.toggle("hidden");
-  fetchCart();
-});
+
 function fetchCart() {
   const CartItems = document.querySelector(".cartItems");
   CartItems.innerHTML = "";

@@ -29,12 +29,36 @@ fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
     document.querySelector(".checkout-total-row.grand p").textContent =
       `${Total}$`;
   });
-document.querySelector('.pay').addEventListener('click', () => {
-Swal.fire({
-  title: "Payment Successful!",
-  text: "Your food is on its way 🍜",
-  icon: "success"
-});
+
+  
+let payment = document.querySelector(".pay");
+payment.addEventListener("click", () => {
+   const cardNumber =  document.querySelector('#cardNumber').value 
+ const expMonth = document.querySelector('#expMonth').value 
+  const expYear = document.querySelector('#expYear').value
+  const cvv = document.querySelector('#cvv').value 
+
+   if (!cardNumber || !expMonth || !expYear || !cvv) {
+    Swal.fire({
+      title: "Oops!",
+      text: "Please fill in all payment details 💳",
+      icon: "error",
+    });
+   
+    return;
+  }
+  
+else {
+   Swal.fire({
+    title: "Payment Successful!",
+    text: "Your food is on its way 🍜",
+    icon: "success",
+  })
+  cardNumber = ''
+  expMonth = ''
+  expYear = ''
+  cvv = ''
+
 }
- 
-)
+});
+
