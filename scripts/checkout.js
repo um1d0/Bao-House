@@ -32,7 +32,7 @@ fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
 
   
 let payment = document.querySelector(".pay");
-payment.addEventListener("click", () => {
+payment.addEventListenerx("click", () => {
    const cardNumber =  document.querySelector('#cardNumber').value 
  const expMonth = document.querySelector('#expMonth').value 
   const expYear = document.querySelector('#expYear').value
@@ -60,5 +60,5 @@ else {
   cvv = ''
 
 }
-});
 
+});

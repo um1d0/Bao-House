@@ -21,24 +21,54 @@ function ProductList(list) {
     productCard.appendChild(card);
   });
 }
-
-function addToCart(quantity, price, id) {
-  const CartData = {
-    quantity: quantity,
-    price: price,
-    productId: id,
-  };
-
-  fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(CartData),
-  })
+const token = localStorage.getItem('token');
+ if (token) {
+function addToCart(qty, price, id) {
+  // ნაბიჯი 1: სანამ პროდუქტს დავამატებთ, პირველ რიგში ვიღებთ კალათის მთლიან შიგთავსს
+  fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
     .then((resp) => resp.json())
-    .then((data) => console.log(data));
+    .then((cartData) => {
+      // ნაბიჯი 2: ვამოწმებთ, არის თუ არა მომხმარებლის მიერ არჩეული პროდუქტი უკვე კალათაში
+      // .find() გადის კალათის ყოველ ელემენტზე და აბრუნებს იმას, რომლის id ემთხვევა
+      const existingItem = cartData.find((item) => item.product.id === id);
+ 
+      if (existingItem) {
+        // ნაბიჯი 3ა: პროდუქტი კალათაში უკვე არის → PUT მეთოდით ვაახლებთ რაოდენობას
+        // მიმდინარე quantity-ს ვუმატებთ 1-ს
+        const reqBodyObj = {
+          quantity: existingItem.quantity + 1, // რაოდენობა იზრდება 1-ით
+          price: price,
+          productId: id,
+        };
+        fetch("https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket", {
+          method: "PUT", // PUT გამოიყენება არსებული ჩანაწერის განახლებისთვის
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reqBodyObj),
+        })
+          .then((resp) => resp.json())
+          .then((data) => console.log(data));
+      } else {
+        // ნაბიჯი 3ბ: პროდუქტი კალათაში ჯერ არ არის → POST მეთოდით ვამატებთ ახლიდან
+        const reqBodyObj = {
+          quantity: qty, // qty გადმოეცემა ღილაკის დაჭერისას (ვაგზავნით 1-ს)
+          price: price,
+          productId: id,
+        };
+        fetch("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
+          method: "POST", // POST გამოიყენება ახალი ჩანაწერის შესაქმნელად
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reqBodyObj),
+        })
+          .then((resp) => resp.json())
+          .then((data) => console.log(data));
+      }
+    });
 
+ 
     Swal.fire({
               title: "Nice Choice!",
               text: "Your item is waiting in the cart 🛒",
@@ -48,6 +78,15 @@ function addToCart(quantity, price, id) {
               confirmButtonColor: "#e8844a",
               iconColor: "#5db87a",
             });
+}}
+else {
+  function addToCart() {
+   Swal.fire({
+      icon: "error",
+      title: "Please Sign In",
+      text: "You have to sign in before ordering something!",
+    });
+  }
 }
 fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
   .then((response) => response.json())
@@ -210,4 +249,4 @@ function productDelete(id) {
     method: "DELETE",
   }).then(() => fetchCart());
 }
-
+const CheckoutBtn = document.querySelector('#Checkout')
